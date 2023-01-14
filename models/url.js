@@ -4,8 +4,18 @@ const Schema = mongoose.Schema;
 const urlSchema = new Schema({
   originalUrl: {
     type: String,
-    required:true
-  }
-})
+    required: true
+  },
+  shortUrl: {
+    type: String,
+    required: true,
+    // default: shortID.generate()
+  },
+  clicks: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+});
 
-module.exports = mongoose.model("longUrl", urlSchema);
+module.exports = mongoose.model("shortUrl", urlSchema);

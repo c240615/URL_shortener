@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const db = mongoose.connection;
-const url = require("../url")
+const shortUrl = require("../url");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB_URI);
 
 db.once("open", () => {
