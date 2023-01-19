@@ -1,21 +1,27 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const shortId = require("shortid");
+
+function getCode(max) {
+  let code = "";
+  let letter = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  for (let i = 0; i < max; i++) {
+    code += letter.charAt(Math.floor(Math.random() * letter.length));
+  }
+  let shortUrl = "https://shortUrl.com/" + code;
+  return shortUrl;
+}
+
 
 const urlSchema = new Schema({
   originalUrl: {
     type: String,
-    required: true
+    required: true,
   },
   shortUrl: {
     type: String,
     required: true,
-    // default: shortID.generate()
-  },
-  clicks: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
+    default: () => getCode(5),
+  }
 });
-
-module.exports = mongoose.model("shortUrl", urlSchema);
+module.exports = mongoose.model("ShortUrl", urlSchema);
