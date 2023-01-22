@@ -35,13 +35,27 @@ app.get("/", (req, res) => {
 });
 
 // 提交 originalUrl
-app.post("/shortURL", (req, res) => {
-  const originalUrl = req.body.originalUrl;
-  return url
-    .create({ originalUrl })
-    .then(() => res.redirect("shorten"))
-    .catch((error) => console.log(error));
+app.post("/shortUrl", (req, res) => {
+  const originalUrl = req.body.originalUrl;  
+  if (
+    url.find(
+      { originalUrl: originalUrl } ,
+      { originalUrl: 1, _id: 0 }
+    ) === { originalUrl: originalUrl }
+  ) {
+    return console.log(repeat);
+  } else {
+    return url
+      .create({ originalUrl })
+      .then(() => res.redirect("shorten"))
+      .catch((error) => console.log(error));
+  }
 });
+/*
+app.get("/:shortUrl/:id", (req, res) => {
+  let Url = url.find({ shortUrl: req.params.shortUrl });
+  return res.redirect(Url.originalUrl); // 剩下這裡要處理
+});*/
 
 // 要抓取POST值 可以用 body; 要抓取GET值 可以用 query; 要抓取Routing值 可以用 params
 // shorten.hbs 呈現 短網址
@@ -54,10 +68,9 @@ app.get("/shorten", (req, res) => {
 });
 
 // 使用者點擊短網址
-app.get("/:shortUrl", (req, res) => {  
-  let Url = url.findOne({ shortUrl: req.params.shortUrl });
-  if (shortUrl === null) return res.sendStatus(404);
-  res.redirect(req.params.shortUrl.originalUrl); // 剩下這裡要處理
+app.get("/:shortUrl", (req, res) => {
+  let Url = url.find({ shortUrl: req.params.shortUrl });
+  return res.redirect(Url.originalUrl); // 剩下這裡要處理
 });
 
 // 設定404頁面

@@ -4,13 +4,13 @@
     <!-- load the files that are in the public directory but do not add public file name or add onerror={()=>{}} -->
     <img class="card-img-top justify-content-center mt-5 pt-5" src="../images/url.png" alt="url">
 </div>
-<form action="/shortURL" method="Post">
+<form action="/shortUrl" method="Post">
     <!-- input -->
     <div class="m-5 input-group mb-3 container mt-5 pt-5">
         <input id="OriginalURL" type="url" name="originalUrl" class="form-control col mr-2 justify-content-center" placeholder="Original URL" aria-label="OriginalURL" aria-describedby="basic-addon2" required>
-        <div class="input-group-append">
+        <div class="input-group-append m-1">
             <!-- button --> 
-            <button class="btn btn-outline-secondary" type="submit">Shorten</button>
+            <button type="submit" class="btn btn-outline-success">Shorten</button>
         </div>
     </div> 
 </form>

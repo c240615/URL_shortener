@@ -14,11 +14,11 @@
       <tr>
         <th scope="col">Original URL</th>
         <th scope="col">Short URL</th>
-        <th scope="col">Clicks</th>
+        <th scope="col">Copy</th>
       </tr>
     </thead>
     {{#each shortUrl}}
-      <form action="/shortURL{{this._id}}" method="Post">
+      <form action="/shortURL/{{this._id}}" method="Post">
         <tbody>
           <tr>
             <td>
