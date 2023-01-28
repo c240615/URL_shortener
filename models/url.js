@@ -7,10 +7,9 @@ function getCode(max) {
   for (let i = 0; i < max; i++) {
     code += letter.charAt(Math.floor(Math.random() * letter.length));
   }
-  let shortUrl = "https://shortUrl.com/" + code;
+  let shortUrl = "https://claireurlshortener.fly.dev/" + code;
   return shortUrl;
 }
-
 
 const urlSchema = new Schema({
   originalUrl: {
@@ -21,6 +20,6 @@ const urlSchema = new Schema({
     type: String,
     required: true,
     default: () => getCode(5),
-  }
+  },
 });
 module.exports = mongoose.model("ShortUrl", urlSchema);
