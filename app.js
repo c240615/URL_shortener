@@ -24,6 +24,7 @@ db.on("error", () => {
 app.engine("hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", "hbs");
 
+app.use(express.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // static
@@ -34,7 +35,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// 提交 originalUrl
+// 提交 originalUrl validUrl.isUri
 app.post("/shortUrls", async (req, res) => {
   const originalUrl = req.body.originalUrl;
   await url
@@ -55,10 +56,9 @@ app.get("/shorten", async (req, res) => {
 // 短網址導向
 app.get("/:shortUrl", async (req, res) => {
   const url = await url.findOne({ shortUrl: req.params.shortUrl });
-  console.log(req.params.shortUrl);    
-  // return res.redirect(url.originalUrl);  
+  console.log(req.params.shortUrl);
+  return res.redirect(url.originalUrl);
 });
-
 
 app.listen(3000, (req, res) => {
   console.log("App is running on http://localhost:3000");
