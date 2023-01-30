@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const url = require("./models/url");
+const ShortUrl = require("./models/url");
 const bodyParser = require("body-parser");
 
 const exphbs = require("express-handlebars");
@@ -44,9 +45,8 @@ app.post("/shortUrls", async (req, res) => {
     .catch((error) => console.log(error));
 });
 
-// 呈現所有網址
-app.get("/shorten", async (req, res) => {
-  await url
+// 呈現網址 
+app.get("/shorten", async (req, res) => {   await url
     .find()
     .lean()
     .then((shortUrls) => res.render("shorten", { shortUrls }))
@@ -55,9 +55,8 @@ app.get("/shorten", async (req, res) => {
 
 // 短網址導向
 app.get("/:shortUrl", async (req, res) => {
-  const url = await url.findOne({ shortUrl: req.params.shortUrl });
-  console.log(req.params.shortUrl);
-  return res.redirect(url.originalUrl);
+const result = await url.findOne({ 'shortUrl': req.params.shortUrl });
+  return res.redirect(result.originalUrl);
 });
 
 app.listen(3000, (req, res) => {
