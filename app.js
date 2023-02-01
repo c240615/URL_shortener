@@ -38,11 +38,19 @@ app.get("/", (req, res) => {
 
 // 提交 originalUrl validUrl.isUri
 app.post("/shortUrls", async (req, res) => {
+
   const originalUrl = req.body.originalUrl;
-  await url
-    .create({ originalUrl: originalUrl })
+  const urldata = await url.findOne({'originalUrl':originalUrl})
+  if(urldata == null){    
+    url
+    .create({ 'originalUrl': originalUrl })
     .then(() => res.redirect("shorten"))
     .catch((error) => console.log(error));
+    
+  }else{    
+    res.redirect("shorten")
+  }
+
 });
 
 // 呈現網址 
