@@ -12,13 +12,18 @@
 3. 在本地開啟之後，透過終端機進入資料夾:
 
    ```bash
-   cd 資料夾名稱   ```
-
-4. 在終端機輸入:
-   ```bash
-   npm run dev   
+   cd 資料夾名稱  
    ```
-5. 開啟瀏覽器 輸入 http://localhost:3000 
+
+4. 在終端機輸入:  
+   ```bash
+   npm install   
+   ```
+5. 在目錄下新增.env檔，設定MONGODB環境變數並於終端機輸入
+   ```bash
+   npm run start   
+   ```
+5. 開啟瀏覽器 輸入 http://localhost:3000 即可進入首頁
 
 ## 開發工具
 1. "body-parser": "^1.20.1"
@@ -26,4 +31,3 @@
 3. "express": "^4.18.2"
 4. "express-handlebars": "^6.0.6"
 5. "mongoose": "^6.8.3"
-
