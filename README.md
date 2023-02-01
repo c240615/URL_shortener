@@ -4,25 +4,18 @@
 ## 功能
 ## 開始使用
 1. 請確認已安裝 node.js 與 npm
-2. clone 此專案至本地
+2. git clone https://github.com/c240615/URL_shortener.git
 3. 在本地開啟之後，透過終端機進入資料夾:
 
    ```bash
-   cd 資料夾名稱
-   ```
+   cd 資料夾名稱   ```
 
+4. 在終端機輸入:
    ```bash
-   npm install
+   npm run dev   
    ```
+5. 開啟瀏覽器 輸入 http://localhost:3000 
 
-   ```bash
-   nodemon app.js
-   ```
-
-4. 若看見此行訊息則代表順利運行，打開瀏覽器輸入以下網址
-
-   ```bash
-   The express is running on localhost:3000
 ## 開發工具
 1. "body-parser": "^1.20.1"
 2. "bootstrap": "^5.2.3"
