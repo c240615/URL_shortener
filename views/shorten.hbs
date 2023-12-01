@@ -1,6 +1,4 @@
-<!-- pic -->
 <div class="container" style="width: 18rem;">
-  <!-- load the files that are in the public directory but do not add public file name or add onerror={()=>{}} -->
   <img
     class="card-img-top justify-content-center mt-5 pt-5"
     src="../images/url.png"
@@ -25,13 +23,14 @@
               <a href="{{this.originalUrl}}">{{this.originalUrl}}</a>
             </td>
             <td>
-              <a href="{{this.shortUrl}}">https://localhost:3000/{{this.shortUrl}}</a>
+              <a
+                href="{{this.shortUrl}}"
+              >https://localhost:3000/{{this.shortUrl}}</a>
             </td>
             <td>
               <button type="button" class="btn btn-primary">Copy</button>
             </td>
           </tr>
-
         </tbody>
       </form>
     {{/each}}

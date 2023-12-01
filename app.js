@@ -1,17 +1,16 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
-const port = 3000;
-const url = require("./models/url");
-const ShortUrl = require("./models/url");
-const bodyParser = require("body-parser");
 
+const url = require("./models/url");
+const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
 
 const mongoose = require("mongoose");
 const db = mongoose.connection;
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -41,7 +40,7 @@ app.post("/shortUrls", async (req, res) => {
 
   const originalUrl = req.body.originalUrl;
   const urldata = await url.findOne({'originalUrl':originalUrl})
-  if(urldata == null){    
+  if(urldata === null){    
     url
     .create({ 'originalUrl': originalUrl })
     .then(() => res.redirect("shorten"))

@@ -8,7 +8,7 @@
 2. 清單顯示所有輸入過的網址，點擊短網址可導向欲縮短之網址
 ## 開始使用
 1. 請確認已安裝 node.js 與 npm
-2. git clone https://github.com/c240615/URL_shortener.git
+2. git clone ...
 3. 在本地開啟之後，透過終端機進入資料夾:
 
    ```bash
@@ -25,9 +25,3 @@
    ```
 5. 開啟瀏覽器 輸入 http://localhost:3000 即可進入首頁
 
-## 開發工具
-1. "body-parser": "^1.20.1"
-2. "bootstrap": "^5.2.3"
-3. "express": "^4.18.2"
-4. "express-handlebars": "^6.0.6"
-5. "mongoose": "^6.8.3"

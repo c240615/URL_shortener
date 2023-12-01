@@ -1,24 +1,26 @@
-<!-- pic --> 
 <div class="container" style="width: 18rem;">
-    <h1 class="justify-content-center mt-5">URL Sortener</h1>
-    <!-- load the files that are in the public directory but do not add public file name or add onerror={()=>{}} -->
-    <img class="card-img-top justify-content-center mt-5 pt-5" src="../images/url.png" alt="url">
+  <h1 class="justify-content-center mt-5">URL Sortener</h1>
+  <img
+    class="card-img-top justify-content-center mt-5 pt-5"
+    src="../images/url.png"
+    alt="url"
+  />
 </div>
+
 <form action="/shortUrls" method="Post">
-    <!-- input -->
-    <div class="m-5 input-group mb-3 container mt-5 pt-5">
-        <input id="OriginalURL" type="url" name="originalUrl" class="form-control col mr-2 justify-content-center" placeholder="Original URL" aria-label="OriginalURL" aria-describedby="basic-addon2" required>
-        <div class="input-group-append m-1">
-            <!-- button --> 
-            <button type="submit" class="btn btn-outline-success">Shorten</button>
-        </div>
-    </div> 
+  <div class="m-5 input-group mb-3 container mt-5 pt-5">
+    <input
+      id="OriginalURL"
+      type="url"
+      name="originalUrl"
+      class="form-control col mr-2 justify-content-center"
+      placeholder="Original URL"
+      aria-label="OriginalURL"
+      aria-describedby="basic-addon2"
+      required
+    />
+    <div class="input-group-append m-1 mx-3">
+      <button type="submit" class="btn btn-outline-success">Shorten</button>
+    </div>
+  </div>
 </form>
-<!-- output https://URL_SHORTENER.fly.dev/12345 --> 
-
-<!-- 
-    輸入相同網址時，產生一樣的縮址。
-    若使用者沒有輸入內容，就按下了送出鈕，需要防止表單送出並提示使用者
- -->
-
- <!-- 可以按 Copy 來複製縮短後的網址 -->
