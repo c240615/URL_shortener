@@ -1,6 +1,6 @@
 # URL_shortener
 ## 首頁
-![image](https://github.com/c240615/URL_shortener/blob/main/public/images/url.png)
+![image](https://github.com/c240615/URL_shortener/blob/main/public/images/url_shortener.png)
 ## 功能
 1. 輸入欲縮短之網址並點擊 shorten
 2. 清單顯示輸入過的網址，點擊短網址可導向欲縮短之網址
