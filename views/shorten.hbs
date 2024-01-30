@@ -11,8 +11,7 @@
     <thead>
       <tr>
         <th scope="col">Original URL</th>
-        <th scope="col">Short URL</th>
-        <th scope="col">Copy</th>
+        <th scope="col">Short URL</th>        
       </tr>
     </thead>
     {{#each shortUrls}}
@@ -24,16 +23,16 @@
             </td>
             <td>
               <a
-                href="{{this.shortUrl}}"
-              >https://localhost:3000/{{this.shortUrl}}</a>
-            </td>
-            <td>
-              <button type="button" class="btn btn-primary">Copy</button>
+                href="{{this.shortUrl}}" 
+              >https://localhost:3000/{{this.shortUrl}}
+              </a>            
             </td>
           </tr>
         </tbody>
       </form>
     {{/each}}
   </table>
-
+  <div class="d-flex flex-row-reverse">
+    <a class="" href="/">回上一頁</a>
+  </div>  
 </div>

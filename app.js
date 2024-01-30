@@ -37,24 +37,24 @@ app.get("/", (req, res) => {
 
 // 提交 originalUrl validUrl.isUri
 app.post("/shortUrls", async (req, res) => {
-
   const originalUrl = req.body.originalUrl;
-  const urldata = await url.findOne({'originalUrl':originalUrl})
-  if(urldata === null){    
+  const urldata = await url.findOne({ originalUrl });
+  if (urldata === null) {
     url
-    .create({ 'originalUrl': originalUrl })
-    .then(() => res.redirect("shorten"))
-    .catch((error) => console.log(error));
-    
-  }else{    
-    res.redirect("shorten")
+      .create({  originalUrl })
+      .then(() => res.redirect("shorten"))
+      .catch((error) => console.log(error));
+  } else {
+    res.redirect("shorten");
   }
-
 });
 
-// 呈現網址 
-app.get("/shorten", async (req, res) => {   await url
+// 呈現網址
+app.get("/shorten", async (req, res) => {
+  await url
     .find()
+    .sort({ _id: -1 })
+    .limit(1)
     .lean()
     .then((shortUrls) => res.render("shorten", { shortUrls }))
     .catch((error) => console.log(error));
@@ -62,8 +62,12 @@ app.get("/shorten", async (req, res) => {   await url
 
 // 短網址導向
 app.get("/:shortUrl", async (req, res) => {
-const result = await url.findOne({ 'shortUrl': req.params.shortUrl });
-  return res.redirect(result.originalUrl);
+  await url
+    .findOne({ shortUrl: req.params.shortUrl })
+    .then((result) => {
+      return res.redirect(result.originalUrl);
+    })
+    .catch((error) => console.log(error));
 });
 
 app.listen(3000, (req, res) => {
