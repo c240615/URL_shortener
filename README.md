@@ -23,3 +23,4 @@
    ```
 5. 開啟瀏覽器 輸入 http://localhost:3000 即可進入首頁
 
+6. [Demo](https://url-shortener-app.fly.dev)
